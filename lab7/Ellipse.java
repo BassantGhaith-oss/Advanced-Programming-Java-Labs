@@ -1,4 +1,4 @@
-class Ellipse extends Shape implements Moveable{    //no couldn't be abstract class
+class Ellipse extends Shape implements Moveable, Comparable<Ellipse>{    //no couldn't be abstract class
     private double l;
     private double w;
     public Ellipse(Point2D start,double l,double w){
@@ -22,6 +22,12 @@ class Ellipse extends Shape implements Moveable{    //no couldn't be abstract cl
         getStart().setLocation(
             getStart().getX() + dx,
             getStart().getY() + dy
+        );
+    }
+     public int compareTo(Ellipse other) {
+        return Double.compare(
+            this.l * this.w,
+            other.l * other.w
         );
     }
 }
